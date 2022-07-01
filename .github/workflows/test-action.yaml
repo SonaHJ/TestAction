@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Annotates pull request with metadata
     steps:
+      - name: _prop_action_server_name_ Action
+        uses: SonaHJ/OTSAction@ReleaseOTS
       - name: Annotate PR
         uses: link-/PR-metadata-action@main
         with:
