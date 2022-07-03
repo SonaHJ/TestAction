@@ -1,46 +1,35 @@
-name: OTS Action
+name: RPT Action
 
 on:
     workflow_dispatch:
         inputs:
-            server_url:
-                description: 'Server URL'
-                required: true
-            offline_token:
-                description: 'Offline Token'
-                required: true
-            team_space:
-                description: 'Team Space'
+            productpath:
+                description: 'Product Path'
+                required: false
+            imshared:
+                description: 'IMShared Location'
+                required: false
+            workspace:
+                description: 'Workspace'
                 required: true
             project:
                 description: 'Project'
                 required: true
-            branch:
-                description: 'Branch'
-                required: true
-            repository:
-                description: 'Repository'
-                required: true
-            file_path:
-                description: 'File Path'
-                required: true
-            environment:
-                description: 'Environment'
+            suite:
+                description: 'Test Suite Name'
                 required: true
 
 jobs:
 
-    OTS-Action:
-        runs-on: ubuntu-latest
+    WebUI-Action:
+        runs-on: self-hosted
+        name: Execute RPT Test
         steps:
-         - name: _prop_action_server_name_ Action
-           uses: SonaHJ/OTSAction@ReleaseOTS
+         - name: Execute Test
+           uses: SonaHJ/RPTAction@main
            with:
-            serverUrl: '${{ github.event.inputs.server_url }}'
-            offlineToken: '${{ github.event.inputs.offline_token }}'
-            teamspace: '${{ github.event.inputs.team_space }}'
+            productpath: '${{ github.event.inputs.productpath }}'
+            imshared: '${{ github.event.inputs.imshared }}'
+            workspace: '${{ github.event.inputs.workspace }}'
             project: '${{ github.event.inputs.project }}'
-            branch: '${{ github.event.inputs.branch }}'
-            repository: '${{ github.event.inputs.repository }}'
-            filepath: '${{ github.event.inputs.file_path }}'
-            environment: '${{ github.event.inputs.environment }}'
+            suite: '${{ github.event.inputs.suite }}'
