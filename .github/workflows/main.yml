@@ -32,7 +32,6 @@ jobs:
 
     OTS-Action:
         runs-on: ubuntu-latest
-        name: Execute OTS Test
         steps:
          - name: _prop_action_server_name_ Action
            uses: SonaHJ/OTSAction@ReleaseOTS
