@@ -10,9 +10,3 @@ jobs:
         steps:
          - name: RPT Action
            uses: SonaHJ/RPTAction@RPT_Release
-           with:
-            productpath: C:\Program Files\HCL\HCLOneTest
-            imshared: C:\Program Files\HCL\HCLIMShared\plugins
-            workspace: D:\workspace_pt
-            project: Test
-            suite: Test
